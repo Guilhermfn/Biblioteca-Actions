@@ -21,6 +21,13 @@ public class LivroVendaTest {
     }
 
     @Test
+    public void testConstrutorSemParametros() {
+        LivroVenda livroVenda = new LivroVenda();
+        Assert.assertEquals(null, livroVenda.livroDoEstoque);
+        Assert.assertEquals(0, livroVenda.quantidade);
+    }
+
+    @Test
     public void testIncrementarQuantidadeSemParametros() {
         Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
         Editora editora = new Editora("Nome da Editora");
@@ -47,6 +54,20 @@ public class LivroVendaTest {
     }
 
     @Test
+    public void testDecrementarQuantidadeSemParametrosQuantidadeZero() {
+        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
+        Editora editora = new Editora("Nome da Editora");
+        Livro livro = new Livro(autor, editora, "1234567890", "Título do Livro", 200);
+
+        LivroEstoque livroEstoque = new LivroEstoque(livro, 10, 50.0);
+
+        LivroVenda livroVenda = new LivroVenda(livroEstoque, 0);
+        Boolean decrementou = livroVenda.DecrementarQuantidade();
+        Assert.assertEquals(false, decrementou);
+        Assert.assertEquals(0, livroVenda.quantidade);
+    }
+
+    @Test
     public void testDecrementarQuantidadeSemParametros() {
         Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
         Editora editora = new Editora("Nome da Editora");
@@ -58,6 +79,20 @@ public class LivroVendaTest {
         Boolean decrementou = livroVenda.DecrementarQuantidade();
         Assert.assertEquals(true, decrementou);
         Assert.assertEquals(9, livroVenda.quantidade);
+    }
+
+    @Test
+    public void testDecrementarQuantidadeComParametrosQuantidadeZero() {
+        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
+        Editora editora = new Editora("Nome da Editora");
+        Livro livro = new Livro(autor, editora, "1234567890", "Título do Livro", 200);
+
+        LivroEstoque livroEstoque = new LivroEstoque(livro, 10, 50.0);
+
+        LivroVenda livroVenda = new LivroVenda(livroEstoque, 0);
+        Boolean decrementou = livroVenda.DecrementarQuantidade(4);
+        Assert.assertEquals(false, decrementou);
+        Assert.assertEquals(0, livroVenda.quantidade);
     }
 
     @Test

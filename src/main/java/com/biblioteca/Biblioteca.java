@@ -16,35 +16,52 @@ public class Biblioteca {
         estoque = new ArrayList<LivroEstoque>();
     }
 
-    public void AdicionarLivro(Livro livro) {
+    public int AdicionarLivro(Livro livro) {
         this.livros.add(livro);
+
+        return this.livros.size();
     }
 
-    public void RemoverLivro(Livro livro) {
+    public int RemoverLivro(Livro livro) {
         this.livros.remove(livro);
+
+        return this.livros.size();
     }
 
-    public void AdicionarAutor(Autor autor) {
+    public int AdicionarAutor(Autor autor) {
         this.autores.add(autor);
+
+        return this.autores.size();
     }
 
-    public void RemoverAutor(Autor autor) {
+    public int RemoverAutor(Autor autor) {
         this.autores.remove(autor);
+
+        return this.autores.size();
     }
 
-    public void AdicionarEditora(Editora editora) {
+    public int AdicionarEditora(Editora editora) {
         this.editoras.add(editora);
+
+        return this.editoras.size();
+
     }
 
-    public void RemoverEditora(Editora editora) {
+    public int RemoverEditora(Editora editora) {
         this.editoras.remove(editora);
+
+        return this.editoras.size();
     }
 
-    public void AdicionarEstoque(LivroEstoque livroEstoque) {
+    public int AdicionarEstoque(LivroEstoque livroEstoque) {
         this.estoque.add(livroEstoque);
+
+        return this.estoque.size();
     }
 
-    public void RemoverEstoque(LivroEstoque livroEstoque) {
+    public int RemoverEstoque(LivroEstoque livroEstoque) {
         this.estoque.remove(livroEstoque);
+
+        return this.estoque.size();
     }
 }
